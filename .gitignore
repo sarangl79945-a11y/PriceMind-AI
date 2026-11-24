@@ -1,0 +1,15 @@
+
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# Environment variables and passwords
+.env
+
+# Database files
+*.db
+*.sqlite3
+
+# VS Code settings
+.vscode/
