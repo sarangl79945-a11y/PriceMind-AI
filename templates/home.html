@@ -1,0 +1,14 @@
+
+<form class="search-box"
+      action="{{ url_for('search_products') }}"
+      method="POST">
+
+    <input type="text"
+           name="query"
+           placeholder="Search for a product..."
+           aria-label="Search for a product"
+           required>
+
+    <button type="submit">Search</button>
+
+</form>

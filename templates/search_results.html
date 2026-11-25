@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Results | PriceMind AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">PriceMind AI</div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#features">Features</a>
+        </div>
+    </nav>
+
+    <section class="features">
+
+        <h2 class="section-title">Product Search Results</h2>
+
+        <p style="text-align: center; margin-bottom: 25px;">
+            Search: <strong>{{ search_query }}</strong>
+        </p>
+
+        <p style="text-align: center; margin-bottom: 30px;">
+            {{ message }}
+        </p>
+
+        {% if products %}
+
+        <div class="feature-grid">
+
+            {% for product in products %}
+
+            <div class="feature-card">
+
+                <h3>{{ product.product_name }}</h3>
+
+                {% if product.brand %}
+                <p>Brand: {{ product.brand }}</p>
+                {% endif %}
+
+                {% if product.category %}
+                <p>Category: {{ product.category }}</p>
+                {% endif %}
+
+                {% if product.store_name %}
+                <p>Store: {{ product.store_name }}</p>
+                {% endif %}
+
+                {% if product.price is not none %}
+                <h2 style="color: #2563eb; margin-top: 15px;">
+                    ₹{{ "%.2f"|format(product.price) }}
+                </h2>
+                {% else %}
+                <p>Price not available yet.</p>
+                {% endif %}
+
+                {% if product.product_url %}
+                <p style="margin-top: 15px;">
+                    <a href="{{ product.product_url }}"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Product
+                    </a>
+                </p>
+                {% endif %}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
+        <p style="text-align: center; margin-top: 35px;">
+            <a href="/">← Back to Home</a>
+        </p>
+
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 PriceMind AI. Smart Shopping with AI.</p>
+    </footer>
+
+</body>
+</html>
