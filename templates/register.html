@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Register | PriceMind AI{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-4 p-md-5">
+                <h2 class="text-center fw-bold mb-2">Create Account</h2>
+                <p class="text-center text-muted mb-4">Join PriceMind AI to track prices and smart deals.</p>
+
+                <form action="{{ url_for('register') }}" method="POST">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text"
+                               class="form-control"
+                               id="username"
+                               name="username"
+                               placeholder="Choose a username"
+                               value="{{ username or '' }}"
+                               required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email"
+                               class="form-control"
+                               id="email"
+                               name="email"
+                               placeholder="you@example.com"
+                               value="{{ email or '' }}"
+                               required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password"
+                               class="form-control"
+                               id="password"
+                               name="password"
+                               placeholder="Minimum 6 characters"
+                               minlength="6"
+                               required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="confirm_password" class="form-label">Confirm Password</label>
+                        <input type="password"
+                               class="form-control"
+                               id="confirm_password"
+                               name="confirm_password"
+                               placeholder="Re-enter your password"
+                               minlength="6"
+                               required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">
+                        Register
+                    </button>
+                </form>
+
+                <p class="text-center text-muted mt-4 mb-0">
+                    Already have an account?
+                    <a href="{{ url_for('login') }}" class="text-decoration-none">Login here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
