@@ -1,14 +1,66 @@
+{% extends "base.html" %}
 
-<form class="search-box"
-      action="{{ url_for('search_products') }}"
-      method="POST">
+{% block title %}PriceMind AI | Smart Product Price Comparison & AI Insights{% endblock %}
 
-    <input type="text"
-           name="query"
-           placeholder="Search for a product..."
-           aria-label="Search for a product"
-           required>
+{% block content %}
+<section class="hero mb-5 shadow-sm">
+    <h1>Smart Shopping with <span>PriceMind AI</span></h1>
+    <p>
+        Compare product prices across top Indian stores, track historical price drops,
+        and get AI-powered Buy Now or Wait recommendations before you spend.
+    </p>
 
-    <button type="submit">Search</button>
+    <form class="search-box"
+          action="{{ url_for('search_products') }}"
+          method="POST">
+        <input type="text"
+               name="query"
+               placeholder="Search for a product (e.g. iPhone 15, Galaxy S24)..."
+               aria-label="Search for a product"
+               required>
+        <button type="submit">Search</button>
+    </form>
+</section>
 
-</form>
+<section id="features" class="features px-0 py-3">
+    <h2 class="section-title">Why Choose PriceMind AI?</h2>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="icon">🔍</div>
+            <h3>Multi-Store Comparison</h3>
+            <p>Compare live prices across Amazon, Flipkart, and Croma sorted from lowest to highest.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">📈</div>
+            <h3>Historical Price Trends</h3>
+            <p>Inspect past price movements to spot real discounts versus artificial price hikes.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">🤖</div>
+            <h3>AI Price Prediction</h3>
+            <p>Machine-learning forecasts help you decide whether to Buy Now or Wait for a better deal.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">🛡️</div>
+            <h3>Deal &amp; Seller Trust</h3>
+            <p>Evaluate review sentiment and seller reliability before placing an order.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">🔔</div>
+            <h3>Smart Price Alerts</h3>
+            <p>Set your target budget and get alerted as soon as a product drops to your price.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">🛒</div>
+            <h3>Personal Dashboard</h3>
+            <p>Save your favorite products and manage all your tracked deals in one place.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
